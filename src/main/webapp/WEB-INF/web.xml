@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  
+  <servlet>
+  	<servlet-name>LoginPageServ</servlet-name>
+  	<servlet-class>com.servlet.LoginPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginPageServ</servlet-name>
+  	<url-pattern>/login-page</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>LoginServ</servlet-name>
+  	<servlet-class>com.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServ</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ProfileServ</servlet-name>
+  	<servlet-class>com.servlet.ProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ProfileServ</servlet-name>
+  	<url-pattern>/profile</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>LogoutServ</servlet-name>
+  	<servlet-class>com.servlet.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LogoutServ</servlet-name>
+  	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>GenerateServ</servlet-name>
+  	<servlet-class>com.servlet.GenerateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>GenerateServ</servlet-name>
+  	<url-pattern>/generate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>controlServ</servlet-name>
+  	<servlet-class>controlServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>controlServ</servlet-name>
+  	<url-pattern>/tasks/*</url-pattern>
+  </servlet-mapping>
+</web-app>
