@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class UserList {
 	private static UserList shared = null;
-	private static Object mutex = new Object();
+	private static Object lock = new Object();
 	private List<User> userList = new ArrayList<>();
 	private UserList() {
 		User user1 = new User("Ashwin" , "123" );
@@ -19,7 +19,7 @@ public class UserList {
 	
 	public static UserList getInstance() {
 		if (UserList.shared == null) {
-			synchronized (mutex) {
+			synchronized (lock) {
 				if(UserList.shared == null)
 					UserList.shared = new UserList();
 			}

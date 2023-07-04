@@ -22,14 +22,16 @@ public class controlServlet extends HttpServlet {
 	private UserList userList = UserList.getInstance();
 	private User authenticate(HttpServletRequest request) {
 		try {
-			String apiKey = request.getParameter("api_key");
+//			String apiKey = request.getParameter("api_key");
+			String apiKey = request.getHeader("x-api-key");
 			for(User user : this.userList.getUserList()) {
 				if(user.getApiKey().contentEquals(apiKey)) {
 					return user;
 				}
 			}
-		}catch(Exception e) {
-			e.printStackTrace();
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
 		}
 		return null;
 	}
@@ -48,7 +50,6 @@ public class controlServlet extends HttpServlet {
 	private void respond(HttpServletResponse response, int statusCode, ToDo todo) {
 		try(PrintWriter out = response.getWriter()){
 			Gson gson = new Gson();
-			
 			response.setStatus(statusCode);
 			String jsonResponse = gson.toJson(todo);
 			out.println(jsonResponse);
@@ -59,7 +60,6 @@ public class controlServlet extends HttpServlet {
 	private void respond(HttpServletResponse response, int statusCode, List<ToDo> toDoList) {
 		try(PrintWriter out = response.getWriter()){
 			Gson gson = new Gson();
-			
 			response.setStatus(statusCode);
 			String jsonResponse = gson.toJson(toDoList);
 			out.println(jsonResponse);

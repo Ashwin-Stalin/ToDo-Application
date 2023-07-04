@@ -12,6 +12,7 @@ public class LogoutServlet extends HttpServlet {
 		try {
 			HttpSession session = request.getSession();  
 			session.invalidate();
+			response.setHeader("Connection", "close");
 			response.sendRedirect("login-page");
 		}catch(IOException ioexception) {
 			System.out.println("catch Io exception : " + ioexception.getMessage());
